@@ -15,14 +15,36 @@ export default async function handler(req, res) {
     }
 
     await resend.emails.send({
-      from: "Diagnóstico <onboarding@resend.dev>",
-      to: ["antonio.justicia@go-is.es"], // TU EMAIL DE RESEND
-      subject: "Nuevo lead recibido",
+      from: "Go-Is Diagnóstico <diagnostico@go-is.es>",
+
+      to: [email], // 👈 LEAD
+
+      cc: [
+        "antonio.justicia@go-is.es",   // cambiar a comercial
+      ],
+
+      bcc: [
+        "antonio.justicia@go-is.es",
+      ],
+
+      subject: "Hemos recibido tu solicitud",
+
       html: `
-        <h2>Nuevo lead</h2>
-        <p><strong>Nombre:</strong> ${nombre}</p>
-        <p><strong>Teléfono:</strong> ${telefono}</p>
+        <h2>Hemos recibido tu solicitud</h2>
+
+        <p>Hola ${nombre || ""},</p>
+
+        <p>
+          Hemos recibido tu solicitud de diagnóstico.
+          En breve analizaremos tu caso y te contactaremos.
+        </p>
+
+        <hr>
+
+        <p><strong>Resumen enviado:</strong></p>
+        <p><strong>Nombre:</strong> ${nombre || "-"}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Teléfono:</strong> ${telefono || "-"}</p>
       `,
     });
 
