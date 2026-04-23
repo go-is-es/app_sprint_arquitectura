@@ -15,8 +15,8 @@ export default async function handler(req, res) {
     }
 
     await resend.emails.send({
-      from: "Diagnóstico <onboarding@resend.dev>", // luego lo cambias
-      to: ["tuemail@tudominio.com"], // TU EMAIL
+      from: "Diagnóstico <onboarding@resend.dev>",
+      to: ["antonio.justicia@go-is.es"], // TU EMAIL DE RESEND
       subject: "Nuevo lead recibido",
       html: `
         <h2>Nuevo lead</h2>
