@@ -11,3 +11,8 @@ Entrar en vercel y confirmar que los cambios se han subido
 Probar la aplicación:
 https://diagnostico.go-is.es/
 https://diagnostico.go-is.es/diagnostico.html
+
+
+
+
+

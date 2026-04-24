@@ -29,24 +29,15 @@ export default async function handler(req, res) {
 
       subject: "Hemos recibido tu solicitud",
 
-      html: `
-        <h2>Hemos recibido tu solicitud</h2>
+      html: generarEmailDiagnosticoHTML({ nombre, email, telefono }),
 
-        <p>Hola ${nombre || ""},</p>
-
-        <p>
-          Hemos recibido tu solicitud de diagnóstico.
-          En breve analizaremos tu caso y te contactaremos.
-        </p>
-
-        <hr>
-
-        <p><strong>Resumen enviado:</strong></p>
-        <p><strong>Nombre:</strong> ${nombre || "-"}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${telefono || "-"}</p>
-      `,
-    });
+    attachments: [
+      {
+        filename: "casos_reales.pdf",
+        path: "https://gois-files.s3.eu-central-003.backblazeb2.com/media/proyectos_GoIs.pdf", // o base64 si lo generas
+      },
+    ],
+  });
 
     return res.status(200).json({ ok: true });
 
