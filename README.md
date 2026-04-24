@@ -13,6 +13,3 @@ https://diagnostico.go-is.es/
 https://diagnostico.go-is.es/diagnostico.html
 
 
-
-
-
