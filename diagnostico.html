@@ -187,7 +187,11 @@ document.getElementById("lead-form").addEventListener("submit", async function(e
   });
 
   if (res.ok) {
-    alert("Enviado correctamente");
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Te hemos enviado un email con un vídeo y ejemplos reales para que veas cómo trabajamos.</h2>";
+
+    setTimeout(() => {
+      window.location.href = "https://diagnostico.go-is.es/";
+    }, 1500);
   } else {
     alert("Error al enviar");
   }
