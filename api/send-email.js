@@ -1,3 +1,4 @@
+import { generarEmailDiagnosticoHTML } from "./utils_email.js";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
