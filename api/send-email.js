@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       to: [email], // 👈 LEAD
 
       cc: [
-        "antonio.justicia@go-is.es",   // cambiar a comercial
+        "comercial@go-is.es",   // cambiar a comercial
       ],
 
       bcc: [
