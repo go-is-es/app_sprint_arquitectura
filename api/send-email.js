@@ -40,6 +40,23 @@ export default async function handler(req, res) {
     ],
   });
 
+  // 👇 Registrar el lead en drive
+  try {
+    await fetch("https://script.google.com/a/macros/go-is.es/s/AKfycbyeC7Nmcc1P1Egph5x1A0WbsFKUiHdNArCPPV_jb8FzEBMkk_bQigU0Rq61ehAR4CUxqw/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nombre,
+        email,
+        telefono
+      })
+    });
+  } catch (e) {
+    console.log("Error guardando lead");
+  }
+
     return res.status(200).json({ ok: true });
 
   } catch (error) {
