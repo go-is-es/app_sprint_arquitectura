@@ -19,22 +19,22 @@ export function generarEmailDiagnosticoHTML({ nombre, email, telefono }) {
           Hola ${nombre || ""},
         </h2>
 
-        <!-- INTRO -->
-        <p style="color:#444; line-height:1.6;">
-          Te dejo un breve vídeo donde te explico cómo estamos ayudando a otras empresas 
-          a optimizar sus sistemas y procesos:
-        </p>
-
-        <!-- VIDEO CTA -->
-        <div style="margin: 20px 0;">
-          <a href="https://gois-files.s3.eu-central-003.backblazeb2.com/media/Go-Is-Optimizacion_Sistemas.mp4"
-             style="display:inline-block; padding:12px 20px; background:#3d8ccc; color:#fff; text-decoration:none; border-radius:8px;">
-             ▶ Ver vídeo
-          </a>
+        <!-- BLOQUE VIDEO -->
+        <div style="margin: 20px 0; padding:18px; border:1px solid #eee; border-radius:10px; background:#fafafa;">        
+            <strong style="font-size:14px;">📌 Vídeo explicativo</strong>
+            <p style="color:#444; line-height:1.6; margin-bottom:10px;">
+                Te dejo un breve vídeo donde te explico cómo estamos ayudando a otras empresas a optimizar sus sistemas y procesos:
+            </p>
+            <a href="https://gois-files.s3.eu-central-003.backblazeb2.com/media/Go-Is-Optimizacion_Sistemas.mp4"
+                style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:#3d8ccc; color:#fff; border-radius:6px; text-decoration:none; font-weight:600;">            
+                <span>▶</span>
+                Ver vídeo
+            </a>
         </div>
 
         <!-- BLOQUE PDF -->
         <div style="margin: 20px 0; padding:18px; border:1px solid #eee; border-radius:10px; background:#fafafa;">        
+            <strong style="font-size:14px;">📄 Casos reales</strong>
             <p style="color:#444; line-height:1.6; margin-bottom:10px;">
                 Además, puedes ver aquí algunos ejemplos reales de proyectos que hemos desarrollado:
             </p>
