@@ -21,8 +21,7 @@ export default async function handler(req, res) {
     let bcc = ["antonio.justicia@go-is.es"];
 
     if (origenNormalizado === "comercial") {
-      // cc = ["comercial@go-is.es"]; // 👈 equipo comercialç
-      cc = ["antonio.justicia@go-is.es"];
+      cc = ["comercial@go-is.es"]; // 👈 equipo comercialç
     }
 
     await resend.emails.send({
