@@ -12,6 +12,9 @@ Probar la aplicación:
 https://diagnostico.go-is.es/
 https://diagnostico.go-is.es/diagnostico.html
 
+para los comerciales:
+https://diagnostico.go-is.es/?source=comercial
+
 
 # 
 # 🚀 Landing Diagnóstico Go-Is

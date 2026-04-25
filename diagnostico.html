@@ -44,7 +44,6 @@
        <div class="lead-highlight">
           ¿Tu empresa está realmente preparada para aprovechar la IA…
           o solo estás probando cosas sin impacto real?
-        </p>
       </div>
 
       <!-- BLOQUE PROBLEMA -->
@@ -102,7 +101,6 @@
       <div class="lead-section">
         <div class="lead-highlight">
           Si pudieras eliminar cuellos de botella y tener control real…
-        </p>
         <p><strong>¿Lo harías?</strong></p>
       </div>
 
@@ -166,16 +164,18 @@
   </div>
 </footer>
 
-</body>
-</html>
 <script>
+const params = new URLSearchParams(window.location.search);
+const origen = params.get("source") || "antonio";
+
 document.getElementById("lead-form").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const data = {
     nombre: document.querySelector('[name="nombre"]').value,
     telefono: document.querySelector('[name="telefono"]').value,
-    email: document.querySelector('[name="email"]').value
+    email: document.querySelector('[name="email"]').value,
+    origen: origen
   };
 
   const res = await fetch("/api/send-email", {
@@ -187,13 +187,23 @@ document.getElementById("lead-form").addEventListener("submit", async function(e
   });
 
   if (res.ok) {
-    document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Te hemos enviado un email con un vídeo y ejemplos reales para que veas cómo trabajamos.</h2>";
+    document.body.innerHTML = `
+      <div style="text-align:center; margin-top:100px;">
+        <h2>Gracias por contactar con nosotros</h2>
+        <p style="color:#555;">
+          Te hemos enviado un email con un vídeo y ejemplos reales para que veas cómo trabajamos.
+        </p>
+      </div>
+    `;
 
     setTimeout(() => {
-      window.location.href = "https://diagnostico.go-is.es/";
+      window.location.href = "https://diagnostico.go-is.es/" + window.location.search;
     }, 1500);
   } else {
     alert("Error al enviar");
   }
 });
 </script>
+
+</body>
+</html>

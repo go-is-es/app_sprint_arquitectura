@@ -9,10 +9,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { nombre, telefono, email } = req.body;
+    const { nombre, telefono, email, origen } = req.body;
 
     if (!email) {
       return res.status(400).json({ error: "Email requerido" });
+    }
+
+    const origenNormalizado = (origen || "").toLowerCase();
+
+    let cc = [];
+    let bcc = ["antonio.justicia@go-is.es"];
+
+    if (origenNormalizado === "comercial") {
+      // cc = ["comercial@go-is.es"]; // 👈 equipo comercialç
+      cc = ["antonio.justicia@go-is.es"];
     }
 
     await resend.emails.send({
@@ -20,17 +30,12 @@ export default async function handler(req, res) {
 
       to: [email], // 👈 LEAD
 
-      cc: [
-        "comercial@go-is.es",   // cambiar a comercial
-      ],
-
-      bcc: [
-        "antonio.justicia@go-is.es",
-      ],
+      cc: cc,
+      bcc: bcc,
 
       subject: "Hemos recibido tu solicitud",
 
-      html: generarEmailDiagnosticoHTML({ nombre, email, telefono }),
+      html: generarEmailDiagnosticoHTML({ nombre, email, telefono, origen }),
 
     attachments: [
       {

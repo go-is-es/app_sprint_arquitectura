@@ -1,4 +1,4 @@
-export function generarEmailDiagnosticoHTML({ nombre, email, telefono }) {
+export function generarEmailDiagnosticoHTML({ nombre, email, telefono, origen }) {
   const anio = new Date().getFullYear();
 
   return `
@@ -104,8 +104,9 @@ export function generarEmailDiagnosticoHTML({ nombre, email, telefono }) {
         <!-- FOOTER -->
         <hr style="margin: 40px 0;">
         <p style="font-size:11px; color:#999; text-align:center; line-height:1.5;">
-        Solicitud enviada por ${nombre || "-"} · ${email}
-        ${telefono ? `· <a href="tel:${telefono}" style="color:#999;">${telefono}</a>` : ""}
+            Solicitud enviada por ${nombre || "-"} · ${email}
+            ${telefono ? `· <a href="tel:${telefono}" style="color:#999;">${telefono}</a>` : ""}
+            ${origen ? `· Origen: ${origen}` : ""}
         </p>
 
         <p style="font-size:12px; color:#999; text-align:center;">
