@@ -162,12 +162,15 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  const params = window.location.search;
-
   document.querySelectorAll(".link-diagnostico").forEach(link => {
-    if (params) {
-      link.href = link.getAttribute("href") + params;
-    }
+    link.addEventListener("click", function(e) {
+      const params = window.location.search;
+
+      if (params) {
+        e.preventDefault();
+        window.location.href = "diagnostico.html" + params;
+      }
+    });
   });
 </script>
 
