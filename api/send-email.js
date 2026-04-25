@@ -18,10 +18,13 @@ export default async function handler(req, res) {
     const origenNormalizado = (origen || "").toLowerCase();
 
     let cc = [];
-    let bcc = ["antonio.justicia@go-is.es"];
+    let bcc = [];
 
     if (origenNormalizado === "comercial") {
-      cc = ["comercial@go-is.es"]; // 👈 equipo comercialç
+      cc = ["comercial@go-is.es"];
+      bcc = ["antonio.justicia@go-is.es"];
+    } else {
+      cc = ["antonio.justicia@go-is.es"];
     }
 
     await resend.emails.send({
