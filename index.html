@@ -43,7 +43,7 @@
         Reservar sesión para valorar si tiene sentido intervenir ahora
     </a>
     <p style="margin-top: 1rem;">
-      <a href="diagnostico.html" class="btn-ghost" id="link-diagnostico">
+      <a href="diagnostico.html" class="btn-ghost link-diagnostico">
         Prefiero analizar mi caso antes
       </a>
     </p>
@@ -141,7 +141,7 @@
         Si prefieres empezar por un diagnóstico rápido antes de hablar:
       </p>
       <p style="margin-top: 1rem;">
-        <a href="diagnostico.html" class="btn-ghost" id="link-diagnostico">
+        <a href="diagnostico.html" class="btn-ghost link-diagnostico">
           Prefiero analizar mi caso antes
         </a>
       </p>
@@ -159,17 +159,17 @@
   </div>
 </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    const params = window.location.search;
+  const params = window.location.search;
 
-    const linkDiagnostico = document.getElementById("link-diagnostico");
-
-    if (linkDiagnostico && params) {
-      linkDiagnostico.href = "diagnostico.html" + params;
+  document.querySelectorAll(".link-diagnostico").forEach(link => {
+    if (params) {
+      link.href = link.getAttribute("href") + params;
     }
-  </script>
+  });
+</script>
 
 </body>
 </html>
